@@ -5,18 +5,17 @@
     <title>Tic Tac Toe Assignment Part 1</title>
     <style type="text/css">
 		.grid{display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 1fr 1fr 1fr; width: 315px;}
-		.square {text-align: center; width: 100px; height: 100px; margin: 5px; border: 1px; border-color: black; border-style: solid;}
+		.square {text-align: center; width: 100px; height: 100px; margin: 5px; border: 1px; border-color: black; border-style: solid; font-size: 85px;}
         .square:hover{background-color: yellow;}
         .turn{border: 1px; border-color: black; border-style: solid; width: 100px;}
         .winner{border: 1px; border-color: green; border-style: solid; width: 100px;}
-        #sq6::after{font-size: 85px; color: black; content:'O';}
-        #sq0::after, #sq3::after{font-size: 85px; color: black; content:'X';}
 	</style>
 </head>
 <body>
     <h1>Tic Tac Toe</h1>
     <div class="turn">It is ___'s turn</div>
     <div class="winner">__ Wins!</div>
+    <div id="selected"></div>
 </body>
 <script>
     const NUM_SQUARES = 9;
@@ -27,5 +26,17 @@
         document.write( "<div class='square' id='" + id + "'></div>" );
     }
     document.write( "</div>");
+
+    const selectionBox = document.getElementById("selected");
+    
+    const squares = document.getElementsByClassName('square');
+
+    for (let i = 0; i < squares.length; i++) {
+        squares[i].addEventListener('click', () =>{
+            selectionBox.innerHTML = `${i}`;
+            squares[i].innerHTML = "X";
+        });
+    }
+
 </script>
 </html>
