@@ -28,13 +28,12 @@
     document.write( "</div>");
 
     const selectionBox = document.getElementById("selected");
-    
-    const squares = document.getElementsByClassName('square');
 
-    for (let i = 0; i < squares.length; i++) {
-        squares[i].addEventListener('click', () =>{
+    for (let i = 0; i < NUM_SQUARES; i++) {
+        let square = document.getElementById(`sq${i}`);
+        square.addEventListener('click', () =>{
             selectionBox.innerHTML = `${i}`;
-            squares[i].innerHTML = "X";
+            square.innerHTML = "X";
         });
     }
 
